@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion';
-import { formatTime, formatDay } from '../js/formatDate';
 
+import { formatTime, formatDay } from '../js/formatDate';
 
 function DisplayForecast(props) {
     const { tab, dataForecast, cityName } = props;
@@ -28,7 +27,7 @@ function DisplayForecast(props) {
     ));
 
     return (
-        <motion.div
+        <div
             className="tab-active display-forecast"
             id="display-forecast"
         >
@@ -58,7 +57,7 @@ function DisplayForecast(props) {
                 <div className="weather-forecast">Rain</div>
                 <div className="icon-forecast">0</div>
             </div> */}
-        </motion.div>
+        </div>
     );
 }
 

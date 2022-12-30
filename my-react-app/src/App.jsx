@@ -8,6 +8,7 @@ import { CityList } from './components/CityList';
 import { Tabs } from './components/Tabs';
 import { ShowResponse } from './components/ShowResponse';
 import { DEFAULT } from './js/const';
+import { SendData } from './SendData';
 
 function App() {
     const [tab, setTab] = useState('tab1');
@@ -19,6 +20,7 @@ function App() {
     const [weatherStatus, setWeatherStatus] = useState();
     const [sunrise, setSunrise] = useState();
     const [sunset, setSunset] = useState();
+
     const [dataForecast, setDataForecast] = useState([]);
 
     const [cityList, setCityList] = useState([]);
@@ -124,6 +126,7 @@ function App() {
                     <Tabs setTab={setTab} />
                 </div>
             </div>
+            <SendData/>
         </div>
     );
 }

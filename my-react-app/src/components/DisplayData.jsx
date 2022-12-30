@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { ERROR_MESSAGE } from '../js/const';
 
 function DisplayData(props) {
@@ -20,7 +19,7 @@ function DisplayData(props) {
     }
 
     return (
-        <motion.div className="tab-active" id="display-data">
+        <div className="tab-active" id="display-data">
             <div className="temperature-data">{temperature}°</div>
             <img src={icon} alt="" className="icon-data" />
             <div className="city-name-data">{cityName}</div>
@@ -45,7 +44,7 @@ function DisplayData(props) {
                     </button>
                 </div>
             )}
-        </motion.div>
+        </div>
     );
 }
 
