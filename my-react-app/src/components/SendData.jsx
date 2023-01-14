@@ -1,13 +1,15 @@
-function SendData () {
+function SendData (props) {
+
+	const {dataForecast, cityList} = props
 
 	const data = {
 		cityName: "Warsana",
-		temp: "20",
+		temp: "2",
 	}
 
 	const submit = () => {
 		console.log("click")
-		fetch('http://localhost:3001/api/update_json', {method: 'POST', body: JSON.stringify(data)})
+		fetch('http://localhost:3001/api/update_json', {method: 'POST', body: JSON.stringify(cityList)})
 	}
 
 	return (

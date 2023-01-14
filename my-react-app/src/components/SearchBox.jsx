@@ -4,14 +4,8 @@ import { ShowResponse } from './ShowResponse';
 
 function SearchBox(props) {
     const {
-        setTemperature,
-        setIcon,
-        setCityName,
-        setFeelsLike,
-        setWeatherStatus,
-        setSunrise,
-        setSunset,
         setDataForecast,
+        setDataWeather
     } = props;
     const [valueInput, setValueInput] = useState(DEFAULT.VALUE);
 
@@ -24,14 +18,8 @@ function SearchBox(props) {
         ShowResponse(
             valueInput.trim(),
             setValueInput,
-            setTemperature,
-            setIcon,
-            setCityName,
-            setFeelsLike,
-            setWeatherStatus,
-            setSunrise,
-            setSunset,
-            setDataForecast
+            setDataForecast,
+            setDataWeather
         );
     };
 
