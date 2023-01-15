@@ -17,14 +17,15 @@ const router = createBrowserRouter([
         path: '/',
         element: <Root />,
         children: [
+            { index: true, element: <App /> },
             {
-                path: "weather",
+                path: 'weather',
                 element: <App />,
             },
             {
-                path: "help",
-                element: <Help/>
-            }
+                path: 'help',
+                element: <Help />,
+            },
         ],
     },
 ]);

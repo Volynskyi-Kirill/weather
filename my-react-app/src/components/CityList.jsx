@@ -4,24 +4,23 @@ import { CityWrap } from './CityWrap';
 import { ShowResponse } from './ShowResponse';
 
 function CityList(props) {
-    const { cityList, setCityList, setDataForecast, setDataWeather } = props;
+    const { setDataForecast, dispatchDataCity } = props;
 
     const dispatch = useDispatch();
-    const result = useSelector((state) => state.cityList);
+    const result = useSelector((state) => state.cityLists.cityList);
 
     const deleteFavoriteCity = (cityName) => {
-        setCityList(cityList.filter((town) => town !== cityName));
         dispatch(deleteCity(cityName));
     };
 
     const showCity = (city) => {
-        ShowResponse(city, null, setDataForecast, setDataWeather);
+        ShowResponse(city, null, setDataForecast, dispatchDataCity);
     };
 
     const lastSelectedCity = (city) => {
         localStorage.setItem('lastCity', JSON.stringify(city));
     };
-    const allCityList = cityList.map((town) => (
+    const allCityList = result.map((town) => (
         <CityWrap
             key={town}
             town={town}

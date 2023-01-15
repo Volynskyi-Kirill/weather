@@ -3,10 +3,7 @@ import { DEFAULT } from '../js/const';
 import { ShowResponse } from './ShowResponse';
 
 function SearchBox(props) {
-    const {
-        setDataForecast,
-        setDataWeather
-    } = props;
+    const { setDataForecast, dispatchDataCity } = props;
     const [valueInput, setValueInput] = useState(DEFAULT.VALUE);
 
     const addTown = (event) => {
@@ -19,7 +16,7 @@ function SearchBox(props) {
             valueInput.trim(),
             setValueInput,
             setDataForecast,
-            setDataWeather
+            dispatchDataCity
         );
     };
 

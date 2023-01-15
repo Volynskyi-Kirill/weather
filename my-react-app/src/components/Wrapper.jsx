@@ -1,5 +1,5 @@
 function Wrapper(props) {
-	const {children} = props
+    const { children } = props;
     return (
         <div className="wrapper">
             <div className="container">

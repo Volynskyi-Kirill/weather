@@ -1,10 +1,6 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useContext } from 'react';
 import { RESPONSE, DEFAULT } from '../js/const';
 import { getData } from '../js/response';
 import { formatDate } from '../js/formatDate';
-import { dataCity } from '../Redux/actions';
-import { DataWeatherContext } from '../context/DataWeatherContext';
 
 const linkImg = (icon) => `//openweathermap.org/img/wn/${icon}@2x.png`;
 
@@ -12,9 +8,8 @@ async function ShowResponse(
     cityName,
     setValueInput,
     setDataForecast,
-    setDataWeather,
+    dispatchDataCity
 ) {
-    // const setDataWeather = useContext(DataWeatherContext)
     const url = `${RESPONSE.serverUrl}?q=${cityName}&appid=${RESPONSE.apiKey}&units=metric`;
     const urlForecast = `${RESPONSE.serverUrlForecast}?q=${cityName}&appid=${RESPONSE.apiKey}&units=metric`;
     const response = await getData(url);
@@ -22,7 +17,7 @@ async function ShowResponse(
         const responseForecast = await getData(urlForecast);
         setDataForecast(responseForecast.list);
     }
-    
+
     const dataResponse = {
         temperature: Math.round(response.main.temp),
         icon: linkImg(response.weather[0].icon),
@@ -31,9 +26,9 @@ async function ShowResponse(
         weatherStatus: response.weather[0].main,
         sunrise: formatDate(response.sys.sunrise),
         sunset: formatDate(response.sys.sunset),
-    }
+    };
 
-    setDataWeather(dataResponse);
+    dispatchDataCity(dataResponse);
 
     if (setValueInput !== null) {
         setValueInput(DEFAULT.VALUE);

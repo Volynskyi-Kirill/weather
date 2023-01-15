@@ -1,21 +1,21 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import { addCity } from '../Redux/actions';
 import { ERROR_MESSAGE } from '../js/const';
 
 function DisplayData(props) {
-    const { cityList, setCityList, tab, reduxStore } = props;
+    const { tab } = props;
     const [error, setError] = useState(false);
 
-    const dispatch = useDispatch()
-    const data = useSelector(state => state.dataNow.cityData)
-    const cityName = data.cityName
+    const dispatch = useDispatch();
+    const cityList = useSelector((state) => state.cityLists.cityList);
+    const data = useSelector((state) => state.dataNow.cityData);
+    const { cityName } = data;
 
     const favoriteCity = () => {
         const newCity = cityList.find((town) => town === cityName);
         if (newCity === undefined) {
-            setCityList([...cityList, cityName]);
-            dispatch(addCity(cityName))
+            dispatch(addCity(cityName));
         } else {
             setError(true);
         }

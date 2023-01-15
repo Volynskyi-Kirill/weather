@@ -1,11 +1,13 @@
+import { useSelector } from 'react-redux';
 import { formatTime, formatDay } from '../js/formatDate';
 
 function DisplayForecast(props) {
-    const {cityName, tab, dataForecast } = props;
+    const { tab, dataForecast } = props;
     if (tab !== 'tab3') {
         return null;
     }
-
+    const cityData = useSelector((state) => state.dataNow.cityData);
+    const { cityName } = cityData;
 
     const data = dataForecast.map((city) => (
         <div key={Math.random()} className="data-container">

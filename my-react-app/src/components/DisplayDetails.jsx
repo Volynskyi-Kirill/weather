@@ -1,11 +1,9 @@
-import { useSelector, useDispatch } from "react-redux";
-
-function DisplayDetalis(props) {
+function DisplayDetails(props) {
     const { tab, reduxStore } = props;
     if (tab !== 'tab2') {
         return null;
     }
-    // const datas = useSelector(state => state.dataNow.cityData)
+
     const data = reduxStore.dataNow.cityData;
 
     return (
@@ -28,4 +26,4 @@ function DisplayDetalis(props) {
     );
 }
 
-export { DisplayDetalis };
+export { DisplayDetails };
